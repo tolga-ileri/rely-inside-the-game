@@ -1,0 +1,29 @@
+# Local stack: API on http://127.0.0.1:8100, web on http://127.0.0.1:3100
+# AI_PROVIDER defaults to "none" (deterministic templates). Export FOUNDRY_* in your shell to try Foundry.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports: ["127.0.0.1:8100:8000"]
+    environment:
+      AI_PROVIDER: ${AI_PROVIDER:-none}
+      FOUNDRY_ENDPOINT: ${FOUNDRY_ENDPOINT:-}
+      FOUNDRY_API_KEY: ${FOUNDRY_API_KEY:-}
+      FOUNDRY_MODEL: ${FOUNDRY_MODEL:-gpt-4o-mini}
+      CORS_ORIGINS: http://127.0.0.1:3100,http://localhost:3100
+      LOG_LEVEL: INFO
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=2)"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+  web:
+    build:
+      context: apps/web
+      args:
+        NEXT_PUBLIC_API_URL: http://127.0.0.1:8100
+    ports: ["127.0.0.1:3100:3000"]
+    depends_on:
+      api:
+        condition: service_healthy

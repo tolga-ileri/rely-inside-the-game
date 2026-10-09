@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background: #0B0E13; color: #F5F7FA; }
+body { font-feature-settings: "ss01" on, "cv11" on; -webkit-font-smoothing: antialiased; }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #323B4A; border-radius: 4px; }
+select { color-scheme: dark; }

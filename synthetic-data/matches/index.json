@@ -1,0 +1,94 @@
+[
+ {
+  "match_id": "elt-hcf-balanced",
+  "scenario": "balanced",
+  "title": "Elmstead Town vs Harbour City FC \u2014 an even contest",
+  "event_count": 2599,
+  "goals": [
+   [
+    40,
+    "ELT"
+   ],
+   [
+    66,
+    "HCF"
+   ]
+  ]
+ },
+ {
+  "match_id": "kmr-hcf-high-press",
+  "scenario": "high_press",
+  "title": "Kingsmere Rovers vs Harbour City FC \u2014 the press that faded",
+  "event_count": 2703,
+  "goals": [
+   [
+    17,
+    "KMR"
+   ],
+   [
+    73,
+    "HCF"
+   ]
+  ]
+ },
+ {
+  "match_id": "wva-kmr-late-comeback",
+  "scenario": "late_comeback",
+  "title": "Westvale Athletic vs Kingsmere Rovers \u2014 the late surge",
+  "event_count": 2551,
+  "goals": [
+   [
+    23,
+    "KMR"
+   ],
+   [
+    82,
+    "WVA"
+   ],
+   [
+    89,
+    "WVA"
+   ]
+  ]
+ },
+ {
+  "match_id": "kmr-elt-red-card",
+  "scenario": "red_card",
+  "title": "Kingsmere Rovers vs Elmstead Town \u2014 ten men from the 38th minute",
+  "event_count": 2420,
+  "goals": [
+   [
+    13,
+    "ELT"
+   ],
+   [
+    58,
+    "KMR"
+   ],
+   [
+    74,
+    "KMR"
+   ]
+  ]
+ },
+ {
+  "match_id": "hcf-wva-tactical-shift",
+  "scenario": "tactical_shift",
+  "title": "Harbour City FC vs Westvale Athletic \u2014 the 56th-minute switch",
+  "event_count": 2504,
+  "goals": [
+   [
+    32,
+    "WVA"
+   ],
+   [
+    69,
+    "HCF"
+   ],
+   [
+    83,
+    "HCF"
+   ]
+  ]
+ }
+]

@@ -1,0 +1,125 @@
+{
+ "match_id": "hcf-wva-tactical-shift",
+ "seed": 2028,
+ "home": "harbour",
+ "away": "westvale",
+ "title": "Harbour City FC vs Westvale Athletic \u2014 the 56th-minute switch",
+ "demo": {
+  "start_second": 3000,
+  "speed": 20
+ },
+ "goals": [
+  {
+   "minute": 31,
+   "team": "away"
+  },
+  {
+   "minute": 69,
+   "team": "home"
+  },
+  {
+   "minute": 83,
+   "team": "home"
+  }
+ ],
+ "subs": [
+  {
+   "minute": 56,
+   "team": "home",
+   "off": "HCF-07",
+   "on": "HCF-17",
+   "note": "Okafor on for Mends; RB Achterberg inverts"
+  },
+  {
+   "minute": 64,
+   "team": "away",
+   "off": "WVA-11",
+   "on": "WVA-24",
+   "note": "extra full-back on the left"
+  },
+  {
+   "minute": 78,
+   "team": "away",
+   "off": "WVA-09",
+   "on": "WVA-18",
+   "note": "fresh striker"
+  },
+  {
+   "minute": 80,
+   "team": "home",
+   "off": "HCF-09",
+   "on": "HCF-19",
+   "note": "like-for-like striker"
+  }
+ ],
+ "red_cards": [],
+ "phases": [
+  {
+   "from": 0,
+   "home": {
+    "poss": 0.5,
+    "prog": 10.0,
+    "ch": [
+     0.38,
+     0.4,
+     0.22
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   },
+   "away": {
+    "poss": 0.5,
+    "prog": 10.0,
+    "ch": [
+     0.3,
+     0.4,
+     0.3
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   }
+  },
+  {
+   "from": 56,
+   "home": {
+    "poss": 0.62,
+    "prog": 12.5,
+    "ch": [
+     0.1,
+     0.2,
+     0.7
+    ],
+    "press": 0.35,
+    "shot": 0.24,
+    "tempo": 3.0,
+    "high": 0.55
+   },
+   "away": {
+    "poss": 0.44,
+    "prog": 8.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.3,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   }
+  }
+ ],
+ "scenario": "tactical_shift",
+ "role_changes": [
+  {
+   "minute": 56,
+   "player": "HCF-02",
+   "role": "IRB"
+  }
+ ],
+ "base_seed": 2026
+}

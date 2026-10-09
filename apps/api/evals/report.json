@@ -1,0 +1,483 @@
+{
+ "mode": "full",
+ "matches": [
+  "elt-hcf-balanced",
+  "kmr-hcf-high-press",
+  "wva-kmr-late-comeback",
+  "kmr-elt-red-card",
+  "hcf-wva-tactical-shift"
+ ],
+ "summary": {
+  "turning_point_explanation": {
+   "passed": 5,
+   "total": 5
+  },
+  "numeric_grounding": {
+   "passed": 10,
+   "total": 10
+  },
+  "unsupported_event_rejection": {
+   "passed": 10,
+   "total": 10
+  },
+  "persona_style": {
+   "passed": 20,
+   "total": 20
+  },
+  "language_adherence": {
+   "passed": 10,
+   "total": 10
+  },
+  "recommendation_grounding": {
+   "passed": 5,
+   "total": 5
+  },
+  "agent_failure_fallback": {
+   "passed": 25,
+   "total": 25
+  }
+ },
+ "results": {
+  "turning_point_explanation": [
+   {
+    "case": "elt-hcf-balanced:sub_shift",
+    "pass": true,
+    "detail": "sub_shift @ 4021s, numbers ['1', '17', '3', '77']"
+   },
+   {
+    "case": "kmr-hcf-high-press:sub_shift",
+    "pass": true,
+    "detail": "sub_shift @ 3901s, numbers ['0', '33', '64']"
+   },
+   {
+    "case": "wva-kmr-late-comeback:sub_shift",
+    "pass": true,
+    "detail": "sub_shift @ 4390s, numbers ['1', '22', '55']"
+   },
+   {
+    "case": "kmr-elt-red-card:red_card",
+    "pass": true,
+    "detail": "red_card @ 2281s, numbers ['34', '80']"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:sub_shift",
+    "pass": true,
+    "detail": "sub_shift @ 3603s, numbers ['1', '25', '3', '75']"
+   }
+  ],
+  "numeric_grounding": [
+   {
+    "case": "elt-hcf-balanced:templates x12",
+    "pass": true,
+    "detail": "all numbers grounded"
+   },
+   {
+    "case": "elt-hcf-balanced:adversarial_numbers",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-hcf-high-press:templates x12",
+    "pass": true,
+    "detail": "all numbers grounded"
+   },
+   {
+    "case": "kmr-hcf-high-press:adversarial_numbers",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "wva-kmr-late-comeback:templates x12",
+    "pass": true,
+    "detail": "all numbers grounded"
+   },
+   {
+    "case": "wva-kmr-late-comeback:adversarial_numbers",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-elt-red-card:templates x12",
+    "pass": true,
+    "detail": "all numbers grounded"
+   },
+   {
+    "case": "kmr-elt-red-card:adversarial_numbers",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:templates x12",
+    "pass": true,
+    "detail": "all numbers grounded"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:adversarial_numbers",
+    "pass": true,
+    "detail": "final source=template"
+   }
+  ],
+  "unsupported_event_rejection": [
+   {
+    "case": "elt-hcf-balanced:fabricated",
+    "pass": true,
+    "detail": "rejected=3"
+   },
+   {
+    "case": "elt-hcf-balanced:unknown_player_text",
+    "pass": true,
+    "detail": "template"
+   },
+   {
+    "case": "kmr-hcf-high-press:fabricated",
+    "pass": true,
+    "detail": "rejected=3"
+   },
+   {
+    "case": "kmr-hcf-high-press:unknown_player_text",
+    "pass": true,
+    "detail": "template"
+   },
+   {
+    "case": "wva-kmr-late-comeback:fabricated",
+    "pass": true,
+    "detail": "rejected=3"
+   },
+   {
+    "case": "wva-kmr-late-comeback:unknown_player_text",
+    "pass": true,
+    "detail": "template"
+   },
+   {
+    "case": "kmr-elt-red-card:fabricated",
+    "pass": true,
+    "detail": "rejected=3"
+   },
+   {
+    "case": "kmr-elt-red-card:unknown_player_text",
+    "pass": true,
+    "detail": "template"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:fabricated",
+    "pass": true,
+    "detail": "rejected=3"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:unknown_player_text",
+    "pass": true,
+    "detail": "template"
+   }
+  ],
+  "persona_style": [
+   {
+    "case": "elt-hcf-balanced:coach",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "elt-hcf-balanced:analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "elt-hcf-balanced:broadcaster",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "elt-hcf-balanced:fan",
+    "pass": true,
+    "detail": "Since Felix Aukland came on, Elmstead Town keep attacking down the right."
+   },
+   {
+    "case": "kmr-hcf-high-press:coach",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:broadcaster",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:fan",
+    "pass": true,
+    "detail": "Since Jude Kerrigan came on, Kingsmere Rovers keep attacking down the centre."
+   },
+   {
+    "case": "wva-kmr-late-comeback:coach",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:broadcaster",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:fan",
+    "pass": true,
+    "detail": "Since Rafa Corvo came on, Westvale Athletic keep attacking down the centre."
+   },
+   {
+    "case": "kmr-elt-red-card:coach",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:broadcaster",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:fan",
+    "pass": true,
+    "detail": "Elmstead Town are down to ten and Kingsmere Rovers are camped in their half."
+   },
+   {
+    "case": "hcf-wva-tactical-shift:coach",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:broadcaster",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:fan",
+    "pass": true,
+    "detail": "Since Kai Okafor came on, Harbour City FC keep attacking down the right."
+   }
+  ],
+  "language_adherence": [
+   {
+    "case": "elt-hcf-balanced:tr",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "elt-hcf-balanced:es",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "kmr-hcf-high-press:tr",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "kmr-hcf-high-press:es",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "wva-kmr-late-comeback:tr",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "wva-kmr-late-comeback:es",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "kmr-elt-red-card:tr",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "kmr-elt-red-card:es",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:tr",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:es",
+    "pass": true,
+    "detail": "english stopwords=0, numbers identical=True"
+   }
+  ],
+  "recommendation_grounding": [
+   {
+    "case": "elt-hcf-balanced:recommendations",
+    "pass": true,
+    "detail": "6 recommendations, all verified=True"
+   },
+   {
+    "case": "kmr-hcf-high-press:recommendations",
+    "pass": true,
+    "detail": "6 recommendations, all verified=True"
+   },
+   {
+    "case": "wva-kmr-late-comeback:recommendations",
+    "pass": true,
+    "detail": "6 recommendations, all verified=True"
+   },
+   {
+    "case": "kmr-elt-red-card:recommendations",
+    "pass": true,
+    "detail": "6 recommendations, all verified=True"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:recommendations",
+    "pass": true,
+    "detail": "4 recommendations, all verified=True"
+   }
+  ],
+  "agent_failure_fallback": [
+   {
+    "case": "elt-hcf-balanced:event_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "elt-hcf-balanced:tactical_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "elt-hcf-balanced:evidence_verifier",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "elt-hcf-balanced:narrative",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "elt-hcf-balanced:foundry_timeout",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:event_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:tactical_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:evidence_verifier",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:narrative",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-hcf-high-press:foundry_timeout",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:event_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:tactical_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:evidence_verifier",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:narrative",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "wva-kmr-late-comeback:foundry_timeout",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:event_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:tactical_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:evidence_verifier",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:narrative",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "kmr-elt-red-card:foundry_timeout",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:event_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:tactical_analyst",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:evidence_verifier",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:narrative",
+    "pass": true,
+    "detail": ""
+   },
+   {
+    "case": "hcf-wva-tactical-shift:foundry_timeout",
+    "pass": true,
+    "detail": ""
+   }
+  ]
+ },
+ "provider_note": "Offline evaluation: deterministic templates and scripted fake LLM replies. No Azure AI Foundry calls were made.",
+ "seconds": 12.5
+}

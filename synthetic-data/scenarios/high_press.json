@@ -1,0 +1,93 @@
+{
+ "match_id": "kmr-hcf-high-press",
+ "seed": 303,
+ "home": "kingsmere",
+ "away": "harbour",
+ "title": "Kingsmere Rovers vs Harbour City FC \u2014 the press that faded",
+ "demo": {
+  "start_second": 2400,
+  "speed": 20
+ },
+ "goals": [
+  {
+   "minute": 17,
+   "team": "home"
+  },
+  {
+   "minute": 72,
+   "team": "away"
+  }
+ ],
+ "subs": [
+  {
+   "minute": 60,
+   "team": "home",
+   "off": "KMR-10",
+   "on": "KMR-14",
+   "note": "fresh legs in midfield"
+  }
+ ],
+ "red_cards": [],
+ "phases": [
+  {
+   "from": 0,
+   "home": {
+    "poss": 0.55,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.7,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.85
+   },
+   "away": {
+    "poss": 0.45,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   }
+  },
+  {
+   "from": 62,
+   "home": {
+    "poss": 0.45,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.22,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.2
+   },
+   "away": {
+    "poss": 0.57,
+    "prog": 10.5,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.22,
+    "tempo": 3.4,
+    "high": 0.4
+   }
+  }
+ ],
+ "scenario": "high_press",
+ "base_seed": 303
+}

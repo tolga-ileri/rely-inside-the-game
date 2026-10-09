@@ -1,0 +1,111 @@
+{
+ "match_id": "kmr-elt-red-card",
+ "seed": 10,
+ "home": "kingsmere",
+ "away": "elmstead",
+ "title": "Kingsmere Rovers vs Elmstead Town \u2014 ten men from the 38th minute",
+ "demo": {
+  "start_second": 1800,
+  "speed": 20
+ },
+ "goals": [
+  {
+   "minute": 12,
+   "team": "away"
+  },
+  {
+   "minute": 58,
+   "team": "home"
+  },
+  {
+   "minute": 74,
+   "team": "home"
+  }
+ ],
+ "subs": [
+  {
+   "minute": 41,
+   "team": "away",
+   "off": "ELT-11",
+   "on": "ELT-21",
+   "note": "centre-back on after the red card"
+  },
+  {
+   "minute": 62,
+   "team": "home",
+   "off": "KMR-06",
+   "on": "KMR-14",
+   "note": "more attacking midfielder"
+  }
+ ],
+ "red_cards": [
+  {
+   "minute": 38,
+   "team": "away",
+   "player": "ELT-04"
+  }
+ ],
+ "phases": [
+  {
+   "from": 0,
+   "home": {
+    "poss": 0.44,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   },
+   "away": {
+    "poss": 0.58,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   }
+  },
+  {
+   "from": 38,
+   "home": {
+    "poss": 0.66,
+    "prog": 10.5,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.22,
+    "tempo": 3.4,
+    "high": 0.6
+   },
+   "away": {
+    "poss": 0.36,
+    "prog": 7.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.25,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.15,
+    "direct": 0.3
+   }
+  }
+ ],
+ "scenario": "red_card",
+ "base_seed": 7
+}

@@ -1,0 +1,34 @@
+{
+  "harbour": {"team_id": "HCF", "name": "Harbour City FC", "short": "HCF", "color": "#1F4E8C", "crest": {"shape": "shield", "initials": "HC"},
+    "players": [
+      ["HCF-01", "Tomas Brennan", 1, "GK"], ["HCF-02", "Leo Achterberg", 2, "RB"], ["HCF-05", "Sami Rautio", 5, "CB"],
+      ["HCF-04", "Nico Varga", 4, "CB"], ["HCF-03", "Owen Pratt", 3, "LB"], ["HCF-06", "Ilias Demir", 6, "DM"],
+      ["HCF-08", "Ruben Castell", 8, "CM"], ["HCF-10", "Milo Fairley", 10, "CM"], ["HCF-07", "Dario Mends", 7, "RW"],
+      ["HCF-09", "Jonah Keel", 9, "ST"], ["HCF-11", "Arturo Lisboa", 11, "LW"],
+      ["HCF-17", "Kai Okafor", 17, "RW"], ["HCF-14", "Bram Hollis", 14, "CM"], ["HCF-19", "Elias Mora", 19, "ST"],
+      ["HCF-21", "Finn Garrow", 21, "LB"], ["HCF-23", "Yusuf Tal", 23, "CB"]]},
+  "westvale": {"team_id": "WVA", "name": "Westvale Athletic", "short": "WVA", "color": "#2E8B57", "crest": {"shape": "circle", "initials": "WA"},
+    "players": [
+      ["WVA-01", "Pieter Smal", 1, "GK"], ["WVA-02", "Callum Rhys", 2, "RB"], ["WVA-04", "Mateo Ibarra", 4, "CB"],
+      ["WVA-05", "Hugo Lindqvist", 5, "CB"], ["WVA-03", "Andre Coyle", 3, "LB"], ["WVA-06", "Tariq Bello", 6, "DM"],
+      ["WVA-08", "Lukas Penner", 8, "CM"], ["WVA-10", "Marco Sedano", 10, "CM"], ["WVA-07", "Ezra Quinlan", 7, "RW"],
+      ["WVA-09", "Viktor Hale", 9, "ST"], ["WVA-11", "Noel Adjei", 11, "LW"],
+      ["WVA-16", "Oskar Brandt", 16, "CM"], ["WVA-18", "Rafa Corvo", 18, "ST"], ["WVA-20", "Jamie Toller", 20, "RW"],
+      ["WVA-22", "Ivo Kranjc", 22, "CB"], ["WVA-24", "Dele Ashby", 24, "LB"]]},
+  "kingsmere": {"team_id": "KMR", "name": "Kingsmere Rovers", "short": "KMR", "color": "#7A2E8C", "crest": {"shape": "diamond", "initials": "KR"},
+    "players": [
+      ["KMR-01", "Anton Weir", 1, "GK"], ["KMR-02", "Seb Okoro", 2, "RB"], ["KMR-04", "Gil Marchetti", 4, "CB"],
+      ["KMR-05", "Rory Dunmore", 5, "CB"], ["KMR-03", "Theo Vance", 3, "LB"], ["KMR-06", "Pavel Ruzic", 6, "DM"],
+      ["KMR-08", "Liam Caddick", 8, "CM"], ["KMR-10", "Ennis Laurent", 10, "CM"], ["KMR-07", "Zane Mercer", 7, "RW"],
+      ["KMR-09", "Caio Ferraz", 9, "ST"], ["KMR-11", "Max Ulden", 11, "LW"],
+      ["KMR-14", "Jude Kerrigan", 14, "CM"], ["KMR-15", "Ola Haugen", 15, "ST"], ["KMR-17", "Remy Tasse", 17, "RW"],
+      ["KMR-20", "Cyril Mbeki", 20, "CB"], ["KMR-22", "Ned Farrow", 22, "LB"]]},
+  "elmstead": {"team_id": "ELT", "name": "Elmstead Town", "short": "ELT", "color": "#B8860B", "crest": {"shape": "hexagon", "initials": "ET"},
+    "players": [
+      ["ELT-01", "Iain Corbett", 1, "GK"], ["ELT-02", "Matias Rho", 2, "RB"], ["ELT-04", "Dominik Sauer", 4, "CB"],
+      ["ELT-05", "Kofi Mensah-Lowe", 5, "CB"], ["ELT-03", "Arlo Pike", 3, "LB"], ["ELT-06", "Bastian Neri", 6, "DM"],
+      ["ELT-08", "Cian Doyle", 8, "CM"], ["ELT-10", "Haruto Sen", 10, "CM"], ["ELT-07", "Luca Ferrand", 7, "RW"],
+      ["ELT-09", "Stefan Ilic", 9, "ST"], ["ELT-11", "Wes Abara", 11, "LW"],
+      ["ELT-14", "Ronan Pell", 14, "CM"], ["ELT-16", "Jae Moreno", 16, "ST"], ["ELT-18", "Felix Aukland", 18, "RW"],
+      ["ELT-21", "Gus Harlow", 21, "CB"], ["ELT-23", "Omar Siddiq", 23, "LB"]]}
+}

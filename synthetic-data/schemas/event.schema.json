@@ -1,0 +1,162 @@
+{
+  "additionalProperties": false,
+  "description": "Rely Match Brain synthetic football event. Coordinates 0-100 in the acting team's attacking frame (x=100 opponent goal; y<33.3 left, 33.3-66.7 centre, >66.7 right). SYNTHETIC DATA ONLY.",
+  "properties": {
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "match_id": {
+      "title": "Match Id",
+      "type": "string"
+    },
+    "period": {
+      "maximum": 2,
+      "minimum": 1,
+      "title": "Period",
+      "type": "integer"
+    },
+    "match_second": {
+      "minimum": 0,
+      "title": "Match Second",
+      "type": "integer"
+    },
+    "minute": {
+      "minimum": 0,
+      "title": "Minute",
+      "type": "integer"
+    },
+    "second": {
+      "maximum": 59,
+      "minimum": 0,
+      "title": "Second",
+      "type": "integer"
+    },
+    "team_id": {
+      "title": "Team Id",
+      "type": "string"
+    },
+    "player_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Player Id"
+    },
+    "event_type": {
+      "enum": [
+        "Pass",
+        "Carry",
+        "Shot",
+        "Goal",
+        "Ball Recovery",
+        "Interception",
+        "Tackle",
+        "Pressure",
+        "Duel",
+        "Foul",
+        "Card",
+        "Substitution",
+        "Clearance",
+        "Cross",
+        "Dribble",
+        "Goalkeeper Action",
+        "Possession Change",
+        "Restart"
+      ],
+      "title": "Event Type",
+      "type": "string"
+    },
+    "outcome": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Outcome"
+    },
+    "start_x": {
+      "maximum": 100.0,
+      "minimum": 0.0,
+      "title": "Start X",
+      "type": "number"
+    },
+    "start_y": {
+      "maximum": 100.0,
+      "minimum": 0.0,
+      "title": "Start Y",
+      "type": "number"
+    },
+    "end_x": {
+      "anyOf": [
+        {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End X"
+    },
+    "end_y": {
+      "anyOf": [
+        {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Y"
+    },
+    "possession_id": {
+      "title": "Possession Id",
+      "type": "integer"
+    },
+    "sequence_id": {
+      "title": "Sequence Id",
+      "type": "integer"
+    },
+    "qualifiers": {
+      "title": "Qualifiers",
+      "type": "object"
+    },
+    "metadata": {
+      "title": "Metadata",
+      "type": "object"
+    }
+  },
+  "required": [
+    "event_id",
+    "match_id",
+    "period",
+    "match_second",
+    "minute",
+    "second",
+    "team_id",
+    "event_type",
+    "start_x",
+    "start_y",
+    "possession_id",
+    "sequence_id"
+  ],
+  "title": "Event",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rely/rely-inside-the-game/synthetic-data/schemas/event.schema.json"
+}

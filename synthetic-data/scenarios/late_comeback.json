@@ -1,0 +1,112 @@
+{
+ "match_id": "wva-kmr-late-comeback",
+ "seed": 93,
+ "home": "westvale",
+ "away": "kingsmere",
+ "title": "Westvale Athletic vs Kingsmere Rovers \u2014 the late surge",
+ "demo": {
+  "start_second": 4140,
+  "speed": 20
+ },
+ "goals": [
+  {
+   "minute": 22,
+   "team": "away"
+  },
+  {
+   "minute": 82,
+   "team": "home"
+  },
+  {
+   "minute": 89,
+   "team": "home"
+  }
+ ],
+ "subs": [
+  {
+   "minute": 68,
+   "team": "home",
+   "off": "WVA-06",
+   "on": "WVA-18",
+   "note": "second striker, back to a 4-2-4 press"
+  },
+  {
+   "minute": 70,
+   "team": "home",
+   "off": "WVA-02",
+   "on": "WVA-20",
+   "note": "winger at right-back"
+  },
+  {
+   "minute": 75,
+   "team": "away",
+   "off": "KMR-09",
+   "on": "KMR-20",
+   "note": "extra centre-back"
+  }
+ ],
+ "red_cards": [],
+ "phases": [
+  {
+   "from": 0,
+   "home": {
+    "poss": 0.46,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   },
+   "away": {
+    "poss": 0.54,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   }
+  },
+  {
+   "from": 70,
+   "home": {
+    "poss": 0.64,
+    "prog": 12.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.65,
+    "shot": 0.24,
+    "tempo": 3.4,
+    "high": 0.8
+   },
+   "away": {
+    "poss": 0.36,
+    "prog": 6.5,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.25,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.15,
+    "direct": 0.25
+   }
+  }
+ ],
+ "scenario": "late_comeback",
+ "base_seed": 91
+}

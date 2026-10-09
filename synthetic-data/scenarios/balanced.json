@@ -1,0 +1,71 @@
+{
+ "match_id": "elt-hcf-balanced",
+ "seed": 11,
+ "home": "elmstead",
+ "away": "harbour",
+ "title": "Elmstead Town vs Harbour City FC \u2014 an even contest",
+ "demo": {
+  "start_second": 2400,
+  "speed": 20
+ },
+ "goals": [
+  {
+   "minute": 40,
+   "team": "home"
+  },
+  {
+   "minute": 66,
+   "team": "away"
+  }
+ ],
+ "subs": [
+  {
+   "minute": 63,
+   "team": "home",
+   "off": "ELT-07",
+   "on": "ELT-18",
+   "note": "like-for-like winger"
+  },
+  {
+   "minute": 70,
+   "team": "away",
+   "off": "HCF-10",
+   "on": "HCF-14",
+   "note": "like-for-like midfielder"
+  }
+ ],
+ "red_cards": [],
+ "phases": [
+  {
+   "from": 0,
+   "home": {
+    "poss": 0.5,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   },
+   "away": {
+    "poss": 0.5,
+    "prog": 10.0,
+    "ch": [
+     0.33,
+     0.34,
+     0.33
+    ],
+    "press": 0.35,
+    "shot": 0.2,
+    "tempo": 3.4,
+    "high": 0.4
+   }
+  }
+ ],
+ "scenario": "balanced",
+ "base_seed": 11
+}
