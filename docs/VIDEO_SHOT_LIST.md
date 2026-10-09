@@ -1,30 +1,26 @@
-# Video shot list (1:55 planned)
+# Video shot list (measured 1:48)
 
-Record at 1440×900 from the production build: `http://127.0.0.1:3100/?demo=1`, with the API on `127.0.0.1:8100`
-and `AI_PROVIDER=none`. Before recording: move the mouse off the controls, close other tabs, and hide any browser
-toolbar that shows localhost URLs. Timings are planned durations. They are not a stopwatch run; re-time the
-recording before submitting. See [DEMO_SCRIPT.md](DEMO_SCRIPT.md) for the narration.
+Shot-by-shot companion to [DEMO_SCRIPT.md](DEMO_SCRIPT.md). Same times, same narration. Times come from a scripted
+run of this sequence on the production build, with real playback and narration-length holds; re-time your own take.
 
-| # | Time | Page / state | Mouse action | Narration (suggested) | Important visual |
+| # | Time | Page / state | Mouse action | Narration | Important visual |
 |---|---|---|---|---|---|
-| 1 | 0:00–0:08 | `/?demo=1`, kick-off | none, cursor parked off-screen | "This is Rely Match Brain. It turns football events into understanding, and understanding into decisions." | Scoreboard, **SYNTHETIC FOOTBALL-REALISTIC DATA** label, the explanatory line at the top of the feed |
-| 2 | 0:08–0:12 | Same | Click **Play Demo** | "We replay a match at twenty times speed. The system sees only events up to the current second." | Playback starts, clock moves |
-| 3 | 0:12–0:43 | Live playback | none (let it run) | "Rules decide when the match has changed. Not AI." | Sequence viewer arrows, intelligence feed filling, momentum timeline |
-| 4 | 0:43–0:50 | Turning-point banner at 60:03 | Click the banner or **Explain Moment** | "Here, Harbour City's 56th-minute substitution moves the attack to the right." | **SUBSTITUTION IMPACT** chip, the "HIGH" severity badge |
-| 5 | 0:50–1:03 | Why panel | Hover the **Evidence** tab, then click it | "Before the change, 25% of progressive actions went down the right. At detection, 71%. Every number links to events and windows." | Before / Trigger / After cards; Evidence tab with event ids and windows |
-| 6 | 1:03–1:10 | Evidence panel | none | "Coverage is 91%, not a fake 100%. The two unverifiable claims are causal hypotheses." | Coverage bar with its breakdown line |
-| 7 | 1:10–1:15 | Why panel → **Coach** | Click the **Why** tab, then choose **Coach** in the persona selector | "The coach gets a decision." | Coach bullets per team; same numbers |
-| 8 | 1:15–1:20 | **Broadcaster** | Choose **Broadcaster** | "The broadcaster gets a story. Same evidence." | Talking-point text |
-| 9 | 1:20–1:28 | Tactical response | Click **Generate Response** | "Amplify with a 3-2-5. The right-back inverts, the left-back pushes high, the winger holds the width. The trade-off is stated." | 4-3-3 → 3-2-5 preview with arrows; trade-off / risk box; suggested-response disclaimer |
-| 10 | 1:28–1:40 | Agent Trace tab | Click **Agent Trace** | "Each agent reports its status, latency and provider. If one fails, the others still deliver." | Table with per-agent ms, provider and fallback; narrative shown as local fallback |
-| 11 | 1:40–1:46 | Recap, English | Click **Generate Recap** | "At full time, recaps for each audience." | 30-second recap text |
-| 12 | 1:46–1:52 | Language switch to Turkish, then Spanish | Choose **TR**, then **ES** in the language selector | "The words change. The facts do not." | Turkish and Spanish recap text, same score and minutes |
-| 13 | 1:52–1:55 | Hold on the recap | none | "Rely Match Brain: from football events to understanding, from understanding to decisions." | Final frame: recap with the synthetic-data label visible |
+| 1 | 0:00–0:08 | `/?demo=1`, kick-off | None. Cursor parked off the controls | "Football changes before the scoreboard does. Rely Match Brain turns synthetic match events into explainable intelligence in real time." | Scoreboard, **SYNTHETIC FOOTBALL-REALISTIC DATA** label, explanatory line above the feed |
+| 2 | 0:08–0:39 | Playback at 20x from 50:00 | Click **Play Demo**, then hands off | "The match is reconstructed only from events received so far. Nothing is precomputed from the final result." | Clock running, numbered arrows on the pitch, feed filling, momentum line |
+| 3 | 0:39–0:46 | Banner **Turning point detected** (match clock 60:03) | None | "After this substitution, Rely detects a major change in how the team progresses down the right side." | Orange banner |
+| 4 | 0:46–0:56 | **Why did the match change?** | Click the banner | "Before the change, 25 percent of progressive actions came from the right channel. At detection, that rises to 71 percent." | **SUBSTITUTION IMPACT** chip, Before 5/20 (25%), Trigger 56:03, After 5/7 (71%) |
+| 5 | 0:56–1:04 | **Evidence** tab | Click **Evidence** | "Every number is recomputed from the synthetic event stream. Rely separates verified evidence from causal hypotheses." | Coverage bar: 20 supported · 2 unverifiable (causal) · 0 rejected; event id and windows |
+| 6 | 1:04–1:09 | Why tab, persona **Coach** → **Broadcaster** | Click **Why did the match change?**; choose **Coach**, then **Broadcaster** in the persona selector | "The same evidence becomes different intelligence depending on who is using it." | Coach: per-team decisions. Broadcaster: talking point. Same numbers |
+| 7 | 1:09–1:20 | Tactical response | Click **Generate Response** | "Rely can turn the finding into a tactical response, while showing the trade-off instead of pretending there is one correct answer." | 4-3-3 → 3-2-5 preview with arrows, player movements, trade-off / risk box, suggested-response line |
+| 8 | 1:20–1:33 | **Agent Trace** | Click **Agent Trace** | "Specialized agents analyse events, interpret tactics, verify evidence and create the narrative through structured handoffs. The architecture is ready for Microsoft Foundry, while this demo uses the local fallback." | Per-agent status and ms; narrative provider shown as none / template |
+| 9 | 1:33–1:41 | Recap, EN → TR → ES | Click **Generate Recap**; choose **TR**, wait about 3 s, choose **ES** | "The facts stay the same. Only the experience changes." | Same score and minutes in three languages |
+| 10 | 1:41–1:48 | Closing card | Cut to [video/closing-card.png](video/closing-card.png) in the editor | "Rely Match Brain. From football events to understanding. From understanding to decisions." | Title, tagline, pitch with the turning-point arrow |
 
-## Recording rules
+## Before you press record
 
-- No browser console, dev overlay or localhost-looking debug UI: use the production build (`pnpm build`, then
-  `pnpm start -p 3100`).
-- No visible internal ids beyond the shortened ones the recording mode shows.
-- No music, no broadcast footage, no third-party logos. The clubs are fictional and use Rely's own crest style.
-- Do not seek on the timeline during the take. **Jump to Turning Point** is the fallback.
+- Production build only; no Next.js dev badge.
+- No console, bookmarks bar or extension icons; hide the address bar if you can.
+- 1920×1080 preferred, 1440×900 acceptable; browser zoom 100% so text survives YouTube compression.
+- Reload `/?demo=1` so the take starts at kick-off, with the API already warm.
+- No visible internal ids beyond the short event ids recording mode shows.
+- Voice only. No music, broadcast footage or third-party logos. The clubs are fictional.
