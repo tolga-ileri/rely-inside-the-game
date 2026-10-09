@@ -35,6 +35,10 @@
   "agent_failure_fallback": {
    "passed": 25,
    "total": 25
+  },
+  "adversarial_grounding": {
+   "passed": 15,
+   "total": 15
   }
  },
  "results": {
@@ -476,8 +480,85 @@
     "pass": true,
     "detail": ""
    }
+  ],
+  "adversarial_grounding": [
+   {
+    "case": "elt-hcf-balanced:invented_score",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "elt-hcf-balanced:wrong_event_time",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "elt-hcf-balanced:unsupported_causality",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-hcf-high-press:invented_score",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-hcf-high-press:wrong_event_time",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-hcf-high-press:unsupported_causality",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "wva-kmr-late-comeback:invented_score",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "wva-kmr-late-comeback:wrong_event_time",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "wva-kmr-late-comeback:unsupported_causality",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-elt-red-card:invented_score",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-elt-red-card:wrong_event_time",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "kmr-elt-red-card:unsupported_causality",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:invented_score",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:wrong_event_time",
+    "pass": true,
+    "detail": "final source=template"
+   },
+   {
+    "case": "hcf-wva-tactical-shift:unsupported_causality",
+    "pass": true,
+    "detail": "final source=template"
+   }
   ]
  },
  "provider_note": "Offline evaluation: deterministic templates and scripted fake LLM replies. No Azure AI Foundry calls were made.",
- "seconds": 12.5
+ "seconds": 9.7
 }

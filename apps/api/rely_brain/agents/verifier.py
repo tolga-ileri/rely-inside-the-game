@@ -14,7 +14,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..data import events_until
-from ..guard import allowed_numbers, ungrounded_numbers, unknown_entities
+from ..guard import allowed_numbers, causal_claims, ungrounded_numbers, ungrounded_scores, unknown_entities
 from ..schemas import Claim, MatchMoment, VerificationReport, WindowMetrics
 from ..windows import window_metrics
 from .base import Agent, SharedState
@@ -145,4 +145,8 @@ class EvidenceVerifierAgent(Agent):
                 issues.append(f"ungrounded number '{n}'")
             for e in unknown_entities(t, known):
                 issues.append(f"unknown entity '{e}'")
+            for c in causal_claims(t):
+                issues.append(f"definitive causal wording '{c}'")
+            for sc in ungrounded_scores(t, s.state.score.values() if s.state else None):
+                issues.append(f"score '{sc}' does not match the match score")
         return issues

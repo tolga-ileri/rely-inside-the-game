@@ -53,7 +53,7 @@ def run(smoke: bool) -> dict:
     ids = ["hcf-wva-tactical-shift"] if smoke else [x["match_id"] for x in list_matches()]
     results: dict[str, list[dict]] = {k: [] for k in (
         "turning_point_explanation", "numeric_grounding", "unsupported_event_rejection", "persona_style",
-        "language_adherence", "recommendation_grounding", "agent_failure_fallback")}
+        "language_adherence", "recommendation_grounding", "agent_failure_fallback", "adversarial_grounding")}
 
     def rec(cat: str, name: str, ok: bool, detail: str = "") -> None:
         results[cat].append({"case": name, "pass": bool(ok), "detail": detail})
@@ -129,6 +129,18 @@ def run(smoke: bool) -> dict:
             if agent == "narrative":
                 ok = ok and s7.narrative is None and s7.focus().explanation_status == "unavailable"
             rec("agent_failure_fallback", f"{mid}:{agent}", ok)
+        # 8. adversarial text: invented score, wrong event time, unsupported causality -> template fallback
+        for case, text, bad in (
+            ("invented_score", "They lead 5-0 and are unstoppable.", "5-0"),
+            ("wrong_event_time", "The equaliser arrived at 97'.", "97"),
+            ("unsupported_causality", "The substitution caused the collapse of the defence.", "caused"),
+        ):
+            CACHE._d.clear()
+            adv_text = json.dumps({"headline": "Change", "explanation": text, "bullets": []})
+            s9 = run_pipeline(m, until, "analyst", "en", with_narrative=True, provider=fake([adv_text, adv_text]))
+            rec("adversarial_grounding", f"{mid}:{case}",
+                s9.narrative.source == "template" and bad not in s9.narrative.explanation,
+                f"final source={s9.narrative.source}")
         CACHE._d.clear()
         s8 = run_pipeline(m, until, with_narrative=True, provider=fake([TimeoutError("simulated"), TimeoutError("simulated")]))
         rec("agent_failure_fallback", f"{mid}:foundry_timeout", s8.narrative is not None and s8.narrative.source == "template")

@@ -81,6 +81,7 @@ export function WhyPanel({ L, ex, persona, onPersona, playerNames }: {
           <h2 className="mt-0.5 text-[19px] font-bold leading-tight text-ink-50">{m.title_localized}</h2>
           <div className="mt-1 flex flex-wrap items-center gap-2 text-meta text-ink-300">
             <span className="rounded bg-shell-700 px-1.5 py-0.5 font-mono">{m.clock}</span>
+            <span className="rounded border border-shell-600 px-1.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-ink-200" data-moment-type={m.type}>{(L as unknown as Record<string, string>)[`mt_${m.type}`] ?? m.type}</span>
             <span className={`rounded px-1.5 py-0.5 font-bold uppercase ${m.severity === "high" ? "bg-rely-600 text-white" : "bg-warn/20 text-warn"}`}>{m.severity}</span>
             <span>{L.confidence} <b className="text-ink-50">{Math.round(m.confidence * 100)}%</b></span>
             {!m.after_window_complete && <span className="text-ink-400">· {L.openWindow}</span>}
@@ -98,7 +99,7 @@ export function WhyPanel({ L, ex, persona, onPersona, playerNames }: {
       <div className="rounded-lg border border-shell-700 bg-shell-850 p-3">
         <div className="mb-2 flex items-center justify-between gap-2">
           <PersonaLens L={L} persona={persona} onPersona={onPersona} />
-          {n && <span className="rounded bg-positive/15 px-1.5 py-0.5 text-[11px] font-semibold text-positive">{n.source === "llm" ? "Foundry" : "Template"} · verified</span>}
+          {n && <span className="rounded bg-positive/15 px-1.5 py-0.5 text-[11px] font-semibold text-positive">{n.source === "llm" ? L.narrativeFoundry : L.narrativeLocal}{n.verified ? ` · ${L.verifiedTag}` : ""}</span>}
         </div>
         <div className="mb-1 text-[11px] text-ink-400">{L.sameEvidence}</div>
         {n ? (
@@ -191,7 +192,7 @@ export function VerificationBar({ L, v }: { L: Dict; v: Verification | null }) {
   return (
     <div className="rounded-lg border border-shell-700 bg-shell-850 p-2.5">
       <div className="flex items-baseline justify-between">
-        <span className="text-meta font-bold uppercase tracking-wider text-ink-400">{L.coverage}</span>
+        <span title={L.coverageTip} className="cursor-help text-meta font-bold uppercase tracking-wider text-ink-400">{L.coverage}</span>
         <b className="text-[18px] tabular-nums text-ink-50">{pct(v.coverage)}</b>
       </div>
       <div className="mt-1.5 flex h-2 overflow-hidden rounded bg-shell-700">
@@ -290,6 +291,7 @@ export function TacticalPanel({ L, resp, colors, whatIf, onWhatIf, onPlaybook, l
       <div className="flex items-start justify-between gap-2">
         <div>
           <div className="text-meta font-bold uppercase tracking-wider text-rely-400">{L.tactics} · {resp.team}</div>
+          <div className="mt-1 text-[11.5px] leading-4 text-ink-400">{L.tacticDisclaimer}</div>
           <h2 className="text-[18px] font-bold text-ink-50">{resp.name}</h2>
         </div>
         <div className="flex items-center gap-1 rounded-lg bg-shell-800 px-2 py-1 font-mono text-[15px] font-bold text-ink-50">
@@ -309,7 +311,7 @@ export function TacticalPanel({ L, resp, colors, whatIf, onWhatIf, onPlaybook, l
         <ul className="mt-0.5 space-y-0.5">{resp.players.filter((p) => p.moves).map((p) => (
           <li key={p.role} className="text-[12.5px] text-ink-200"><b className="text-ink-50">#{p.number} {p.name}</b> ({p.role}) {p.text}</li>
         ))}</ul>
-        <div className="mt-2 rounded-md border border-risk/40 bg-risk/10 p-2 text-[12.5px] text-ink-50"><b className="text-risk">{L.risk}: </b>{resp.risk}</div>
+        <div className="mt-2 rounded-md border border-risk/40 bg-risk/10 p-2 text-[12.5px] text-ink-50"><b className="text-risk">{L.tradeoff}: </b>{resp.risk}</div>
       </div>
       <div>
         <div className="mb-1 flex items-center justify-between">

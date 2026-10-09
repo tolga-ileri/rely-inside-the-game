@@ -13,8 +13,9 @@ Mode: **full**, matches: elt-hcf-balanced, kmr-hcf-high-press, wva-kmr-late-come
 | language adherence | 10 | 10 |
 | recommendation grounding | 5 | 5 |
 | agent failure fallback | 25 | 25 |
+| adversarial grounding | 15 | 15 |
 
-**Overall: 85/85 cases passed.**
+**Overall: 100/100 cases passed.**
 
 ## Cases
 
@@ -116,3 +117,20 @@ Mode: **full**, matches: elt-hcf-balanced, kmr-hcf-high-press, wva-kmr-late-come
 - PASS `hcf-wva-tactical-shift:evidence_verifier`
 - PASS `hcf-wva-tactical-shift:narrative`
 - PASS `hcf-wva-tactical-shift:foundry_timeout`
+
+### adversarial grounding
+- PASS `elt-hcf-balanced:invented_score` final source=template
+- PASS `elt-hcf-balanced:wrong_event_time` final source=template
+- PASS `elt-hcf-balanced:unsupported_causality` final source=template
+- PASS `kmr-hcf-high-press:invented_score` final source=template
+- PASS `kmr-hcf-high-press:wrong_event_time` final source=template
+- PASS `kmr-hcf-high-press:unsupported_causality` final source=template
+- PASS `wva-kmr-late-comeback:invented_score` final source=template
+- PASS `wva-kmr-late-comeback:wrong_event_time` final source=template
+- PASS `wva-kmr-late-comeback:unsupported_causality` final source=template
+- PASS `kmr-elt-red-card:invented_score` final source=template
+- PASS `kmr-elt-red-card:wrong_event_time` final source=template
+- PASS `kmr-elt-red-card:unsupported_causality` final source=template
+- PASS `hcf-wva-tactical-shift:invented_score` final source=template
+- PASS `hcf-wva-tactical-shift:wrong_event_time` final source=template
+- PASS `hcf-wva-tactical-shift:unsupported_causality` final source=template

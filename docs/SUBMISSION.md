@@ -65,7 +65,7 @@ latency, provider, model, fallback and coverage, without prompts or secrets.
 
 Typed schemas (pydantic and TypeScript), structured JSON logs with latencies, `/health` and `/ready` endpoints,
 containerised services with health checks, infrastructure as code, a secret-free repository (`.env` ignored, gitleaks
-in CI), an offline eval suite (85/85), and deterministic, reproducible data.
+in CI), an offline eval suite (100/100, including adversarial cases), and deterministic, reproducible data.
 
 ## Synthetic data compliance
 

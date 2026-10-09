@@ -246,11 +246,12 @@ export function MatchBrainApp({ matchId = DEMO_MATCH, demoMode = false, fail }: 
 
         {/* Right feed */}
         <aside className={`${tab ? "hidden" : "flex"} w-[360px] shrink-0 flex-col border-l border-shell-700 bg-shell-900 p-4`}>
+          {!live?.feed?.length && <p className="px-1 pb-2 text-[12px] leading-5 text-ink-300" data-testid="intro-line">{L.introLine}</p>}
           <Feed items={live?.feed ?? []} colors={colors} title={L.feed} empty={L.noFeed} selected={selected}
             onSelect={(id) => { setSelected(id); explain(id); }} />
           {live?.verification && (
             <div className="mt-3 rounded-lg border border-shell-700 bg-shell-850 p-2.5 text-[12px] text-ink-300">
-              {L.coverage}: <b className="text-ink-50">{Math.round(live.verification.coverage * 100)}%</b> · {live.verification.supported}/{live.verification.total_claims} {L.supported}
+              <span title={L.coverageTip} className="cursor-help">{L.coverage}</span>: {live?.feed?.length ? <><b className="text-ink-50">{Math.round(live.verification.coverage * 100)}%</b> · {live.verification.supported}/{live.verification.total_claims} {L.supported}</> : <span className="text-ink-400">{L.awaitingEvents}</span>}
               {!demoMode && <span className="ml-1 text-ink-400">· {st?.events_processed} events</span>}
             </div>
           )}

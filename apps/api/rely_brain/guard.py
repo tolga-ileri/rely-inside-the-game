@@ -72,3 +72,36 @@ def unknown_entities(text: str, known: Iterable[str]) -> list[str]:
         if len(unknown) >= 2:
             bad.append(seq)
     return bad
+
+
+# Definitive causal wording. Rely reports associations ("after the substitution, ..."); generated text
+# may not state that an event *caused* a change unless it is labelled as a hypothesis by the product.
+CAUSAL_RE = re.compile(
+    r"\b(caused|causes|causing|because of|led to|leads to|resulted in|results in|due to|thanks to"
+    r"|sayesinde|yüzünden|neden oldu|provocó|causó|debido a|gracias a|por culpa de)\b",
+    re.IGNORECASE,
+)
+
+
+def causal_claims(text: str) -> list[str]:
+    """Definitive causal phrases in generated text (association language is allowed)."""
+    return [m.group(0) for m in CAUSAL_RE.finditer(text)]
+
+
+# A score written as "a-b" or "a – b". Each pair must equal the real score, either way round.
+SCORE_RE = re.compile(r"(?<![\d.:%])(\d{1,2})\s*[-–]\s*(\d{1,2})(?![\d:%])")
+
+
+def ungrounded_scores(text: str, score: Iterable[int] | None) -> list[str]:
+    """Score-like pairs in `text` that do not match the match's actual score (formations excluded)."""
+    if score is None:
+        return []
+    goals = list(score)
+    if len(goals) != 2:
+        return []
+    valid = {(goals[0], goals[1]), (goals[1], goals[0])}
+    bad = []
+    for m in SCORE_RE.finditer(FORMATION_RE.sub(" ", text)):
+        if (int(m.group(1)), int(m.group(2))) not in valid:
+            bad.append(m.group(0))
+    return bad

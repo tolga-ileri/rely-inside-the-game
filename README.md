@@ -90,7 +90,7 @@ More detail: [docs/architecture](docs/architecture/README.md).
 | Technology | Use | Why |
 |---|---|---|
 | **Azure AI Foundry** (model inference via `azure-ai-inference`) | Narrative agent: persona and language explanations as structured JSON, with streaming support | One endpoint for many models, JSON output, enterprise auth and content safety |
-| **Azure Container Apps** | API + web containers with liveness/readiness/startup probes, autoscale (`infra/azure/main.bicep`) | Serverless containers, HTTP scaling, no cluster to run |
+| **Azure Container Apps** | **Deployment-ready, not deployed.** API + web containers with liveness/readiness/startup probes, autoscale (`infra/azure/main.bicep`) | Serverless containers, HTTP scaling, no cluster to run |
 | **Azure Container Registry** | Image builds (`az acr build`) | Builds in the cloud, no local Docker needed |
 | **Azure Monitor / Log Analytics** | Structured JSON logs with latencies from the API | Query agent latency, fallback rates and errors |
 | **GitHub Actions** | CI: tests, lint, typecheck, build, eval smoke, Docker builds, gitleaks | Every change is checked |
@@ -99,7 +99,7 @@ More detail: [docs/architecture](docs/architecture/README.md).
 **Status, stated plainly:** the Foundry provider is implemented and unit-tested with fake clients. No Foundry
 credentials were available while building it, so **no live Foundry call has been made yet**, and the default is
 `AI_PROVIDER=none`, which uses deterministic templates. The Azure deployment files are written but **have not been
-deployed yet**. See [docs/foundry](docs/foundry/README.md).
+deployed yet**. Activation steps for real Foundry credentials: [docs/FOUNDRY_SETUP.md](docs/FOUNDRY_SETUP.md). Design: [docs/foundry](docs/foundry/README.md).
 
 ## Synthetic data statement
 
@@ -184,17 +184,19 @@ This path has **not been run yet** (no Azure subscription was available during d
 `apps/api/evals/run_evals.py` runs offline. It uses deterministic templates and scripted fake LLM replies that
 deliberately include invented numbers, unknown players and timeouts.
 Categories: turning-point explanation, numeric grounding, unsupported event rejection, persona style, language
-adherence, recommendation grounding, agent failure fallback. Latest full run: **85/85 cases passed**
+adherence, recommendation grounding, agent failure fallback. Latest full run: **100/100 cases passed**, including adversarial cases (invented score, wrong event time, unsupported causality)
 ([report](apps/api/evals/report.md)). CI runs the smoke subset.
 
 ## Screenshots
 
+Captured at 1440×900 from the production build with `?demo=1` (`docs/screenshots/`).
+
 | | |
 |---|---|
-| ![Turning point](docs/screenshots/02-turning-point.png) Turning point detected | ![Why](docs/screenshots/03-why-moment.png) Why did the match change? |
-| ![Evidence](docs/screenshots/04-evidence.png) Evidence panel | ![Persona](docs/screenshots/05-persona-coach.png) Persona lens (coach) |
-| ![Response](docs/screenshots/06-tactical-response.png) Tactical response, 4-3-3 → 3-2-5 | ![Trace](docs/screenshots/07-agent-trace.png) Agent trace |
-| ![Recap TR](docs/screenshots/08-recap-tr.png) Recap in Turkish | ![Recap ES](docs/screenshots/09-recap-es.png) Recap in Spanish |
+| ![Match Brain](docs/screenshots/01-match-brain.png) **Match Brain**: synthetic match, explained on the first screen | ![Turning point](docs/screenshots/02-turning-point.png) **Turning point**: before, trigger, after |
+| ![Evidence](docs/screenshots/03-evidence.png) **Evidence**: event ids, windows, derived metrics | ![Coach](docs/screenshots/04-persona-coach.png) **Persona lens**: coach (same evidence) |
+| ![Tactical response](docs/screenshots/06-tactical-response.png) **Tactical response**: 4-3-3 → 3-2-5 preview | ![Agent trace](docs/screenshots/07-agent-trace.png) **Agent trace**: per-agent status, latency, provider |
+| ![Recap TR](docs/screenshots/09-recap-tr.png) **Recap in Turkish** | ![Recap ES](docs/screenshots/10-recap-es.png) **Recap in Spanish** |
 
 ## Future potential
 
