@@ -47,7 +47,7 @@ function metricRows(m: Moment, w: WindowMetrics, L: Dict): [string, string][] {
 
 function WindowCard({ title, w, m, L, accent }: { title: string; w: WindowMetrics | null; m: Moment; L: Dict; accent?: boolean }) {
   return (
-    <div className={`rounded-lg border p-2.5 ${accent ? "border-rely-600/60 bg-rely-600/5" : "border-shell-700 bg-shell-850"}`}>
+    <div className={`min-w-0 rounded-lg border p-2.5 ${accent ? "border-rely-600/60 bg-rely-600/5" : "border-shell-700 bg-shell-850"}`}>
       <div className="mb-1 flex items-baseline justify-between">
         <span className="text-meta font-bold uppercase tracking-wider text-ink-300">{title}</span>
         {w && <span className="font-mono text-[11px] text-ink-400">{clock(w.start)}–{clock(w.end)}</span>}
@@ -82,13 +82,13 @@ export function WhyPanel({ L, ex, persona, onPersona, playerNames }: {
           <div className="mt-1 flex flex-wrap items-center gap-2 text-meta text-ink-300">
             <span className="rounded bg-shell-700 px-1.5 py-0.5 font-mono">{m.clock}</span>
             <span className="rounded border border-shell-600 px-1.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-ink-200" data-moment-type={m.type}>{(L as unknown as Record<string, string>)[`mt_${m.type}`] ?? m.type}</span>
-            <span className={`rounded px-1.5 py-0.5 font-bold uppercase ${m.severity === "high" ? "bg-rely-600 text-white" : "bg-warn/20 text-warn"}`}>{m.severity}</span>
+            <span className={`rounded px-1.5 py-0.5 font-bold uppercase ${m.severity === "high" ? "bg-rely-600 text-white" : "bg-warn/20 text-warn"}`}>{(L as unknown as Record<string, string>)[`sev_${m.severity}`] ?? m.severity}</span>
             <span>{L.confidence} <b className="text-ink-50">{Math.round(m.confidence * 100)}%</b></span>
             {!m.after_window_complete && <span className="text-ink-400">· {L.openWindow}</span>}
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-2">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-stretch gap-2">
         <WindowCard title={L.before} w={m.before_state} m={m} L={L} />
         <div className="flex w-[118px] flex-col items-center justify-center rounded-lg border border-shell-600 bg-shell-800 p-2 text-center">
           <div className="text-meta font-bold uppercase tracking-wider text-rely-400">{L.trigger}</div>
@@ -114,18 +114,18 @@ export function WhyPanel({ L, ex, persona, onPersona, playerNames }: {
       </div>
       {ex.claims.length > 0 && (
         <div data-testid="claims">
-          <div className="mb-1 text-meta font-bold uppercase tracking-wider text-ink-400">Agent reasoning · structured (EN)</div>
-          <ul className="space-y-1">
+          <div className="mb-1 text-meta font-bold uppercase tracking-wider text-ink-400">{L.reasoningTitle}</div>
+          {L.reasoningEnOnly ? <p className="text-[12px] leading-5 text-ink-300">{L.reasoningEnOnly}</p> : <ul className="space-y-1">
             {ex.claims.filter((c) => ["finding", "hypothesis", "recommendation", "risk"].includes(c.kind)).slice(0, 5).map((c) => (
               <li key={c.id} className="flex items-start gap-2 rounded-md border border-shell-700 bg-shell-850 px-2 py-1.5 text-[12px] leading-snug">
-                <span className="mt-0.5 w-[104px] shrink-0 text-[9.5px] font-bold uppercase tracking-wide text-ink-400">{c.kind}</span>
+                <span className="mt-0.5 w-[104px] shrink-0 text-[9.5px] font-bold uppercase tracking-wide text-ink-400">{(L as unknown as Record<string, string>)[`ck_${c.kind}`] ?? c.kind}</span>
                 <span className="flex-1 text-ink-200">{c.text}{c.caveat ? <span className="text-ink-400"> · {c.caveat}</span> : null}</span>
                 <span className={`shrink-0 rounded px-1 text-[10px] font-bold ${c.kind === "hypothesis" ? "bg-warn/15 text-warn" : c.verified ? "bg-positive/15 text-positive" : "bg-risk/15 text-risk"}`}>
-                  {c.kind === "hypothesis" ? "causal" : c.verified ? "✓ verified" : "rejected"}
+                  {c.kind === "hypothesis" ? L.chipCausal : c.verified ? L.chipVerified : L.chipRejected}
                 </span>
               </li>
             ))}
-          </ul>
+          </ul>}
         </div>
       )}
       {persona === "broadcaster" && (
@@ -215,19 +215,19 @@ export function TracePanel({ L, trace, v }: { L: Dict; trace: AgentTrace[]; v: V
         <tbody>
           {trace.map((r) => (
             <tr key={r.agent} className="border-t border-shell-700 align-top [&>td]:px-1.5">
-              <td className="py-1.5 font-semibold text-ink-50">{r.agent.replaceAll("_", " ")}{r.note && <div className="max-w-[210px] text-[10.5px] font-normal leading-tight text-ink-400">{r.note}</div>}</td>
-              <td><span className={`rounded px-1.5 py-0.5 text-[11px] font-bold ${r.status === "ok" ? "bg-positive/15 text-positive" : r.status === "fallback" ? "bg-warn/15 text-warn" : "bg-risk/15 text-risk"}`}>{r.status}</span></td>
+              <td className="py-1.5 font-semibold text-ink-50">{(L as unknown as Record<string, string>)[`ag_${r.agent}`] ?? r.agent.replaceAll("_", " ")}{r.note && <div className="max-w-[210px] text-[10.5px] font-normal leading-tight text-ink-400">{r.note}</div>}</td>
+              <td><span className={`rounded px-1.5 py-0.5 text-[11px] font-bold ${r.status === "ok" ? "bg-positive/15 text-positive" : r.status === "fallback" ? "bg-warn/15 text-warn" : "bg-risk/15 text-risk"}`}>{(L as unknown as Record<string, string>)[`st_${r.status}`] ?? r.status}</span></td>
               <td className="text-right tabular-nums text-ink-200">{r.ms.toFixed(1)}</td>
-              <td className="text-ink-300">{r.provider}</td>
+              <td className="text-ink-300">{(L as unknown as Record<string, string>)[`pv_${r.provider}`] ?? r.provider}</td>
               <td className="text-ink-300">{r.model ?? "—"}</td>
-              <td className="text-ink-300">{r.fallback_used ? "yes" : "no"}</td>
+              <td className="text-ink-300">{r.fallback_used ? L.yes : L.no}</td>
               <td className="text-right tabular-nums text-ink-200">{r.outputs}{r.evidence_coverage !== null ? ` · ${pct(r.evidence_coverage)}` : ""}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <VerificationBar L={L} v={v} />
-      <p className="text-[11px] leading-4 text-ink-400">Prompts and provider credentials are never shown. Deterministic stages (state, detector, analysts, verifier) run without AI; the Narrative agent uses the configured provider with a grounded template fallback.</p>
+      <p className="text-[11px] leading-4 text-ink-400">{L.traceNote}</p>
     </div>
   );
 }
@@ -302,7 +302,7 @@ export function TacticalPanel({ L, resp, colors, whatIf, onWhatIf, onPlaybook, l
       <div className="grid grid-cols-3 gap-2 text-center">
         <Stat k={L.backLine} v={`${resp.formation_impact.back_line[0]} → ${resp.formation_impact.back_line[1]}`} />
         <Stat k={L.frontLine} v={`${resp.formation_impact.front_line[0]} → ${resp.formation_impact.front_line[1]}`} />
-        <Stat k={L.impact} v={resp.formation_impact.phase} />
+        <Stat k={L.impact} v={resp.formation_impact.phase === "in possession" ? L.phase_in : resp.formation_impact.phase === "out of possession" ? L.phase_out : resp.formation_impact.phase} />
       </div>
       <div className="rounded-lg border border-shell-700 bg-shell-850 p-2.5">
         <div className="text-meta font-bold uppercase tracking-wider text-ink-400">{L.instruction}</div>
@@ -321,7 +321,7 @@ export function TacticalPanel({ L, resp, colors, whatIf, onWhatIf, onPlaybook, l
         <div className="flex flex-wrap gap-1.5">
           {resp.options.map((o) => (
             <button key={o} onClick={() => { onWhatIf(o); if (o !== "counter_5_4_1") onPlaybook(o); }}
-              className={`rounded-md border px-2 py-1 text-[12px] ${whatIf?.option === o ? "border-rely-500 bg-rely-600/15 text-ink-50" : "border-shell-600 text-ink-300 hover:text-ink-50"}`}>{o.replaceAll("_", " ")}</button>
+              className={`rounded-md border px-2 py-1 text-[12px] ${whatIf?.option === o ? "border-rely-500 bg-rely-600/15 text-ink-50" : "border-shell-600 text-ink-300 hover:text-ink-50"}`}>{(L as unknown as Record<string, string>)[`wi_${o}`] ?? o.replaceAll("_", " ")}</button>
           ))}
         </div>
         {whatIf && (

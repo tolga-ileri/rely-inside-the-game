@@ -125,7 +125,7 @@ describe("tactical response", () => {
     const saved = JSON.parse(localStorage.getItem("rely.demoTactics") || "[]");
     expect(saved).toHaveLength(1);
     expect(saved[0].to).toBe("3-2-5");
-    fireEvent.click(screen.getByRole("button", { name: "counter 5 4 1" }));
+    fireEvent.click(screen.getByRole("button", { name: "Counter: 5-4-1" }));
     expect(onWhatIf).toHaveBeenCalledWith("counter_5_4_1");
     vi.useRealTimers();
   });

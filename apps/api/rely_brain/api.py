@@ -15,6 +15,7 @@ from pydantic import BaseModel
 from . import narrative as nar
 from .agents.narrative_agent import SYSTEM, NarrativeAgent, unavailable_text
 from .data import DEMO_MATCH_ID, list_matches, load_match
+from .evidence_i18n import localise_label
 from .llm import ProviderError, get_provider
 from .logging_setup import setup_logging
 from .orchestrator import run_pipeline
@@ -65,6 +66,8 @@ def _fail(fail: str | None) -> set[str]:
 def _moment_view(match: Match, m: MatchMoment, locale: str) -> dict[str, Any]:
     d = m.model_dump()
     d["title_localized"] = nar.moment_title(match, m, locale)
+    for ev in d.get("evidence", []):
+        ev["label"] = localise_label(ev["label"], locale)
     d["clock"] = clock_label(m.timestamp)
     d["detected_clock"] = clock_label(m.detected_at)
     return d

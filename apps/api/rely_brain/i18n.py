@@ -13,13 +13,13 @@ CHANNEL = {
 
 RULE_NAME = {
     "en": {"sub_shift": "substitution shift", "red_card": "red card", "shot_surge": "shot surge", "momentum_swing": "momentum swing",
-           "channel_dominance": "channel dominance", "possession_swing": "possession swing",
+           "channel_dominance": "channel dominance", "possession_swing": "pass-share swing",
            "dangerous_sequences": "repeated dangerous sequences", "goal": "goal"},
     "tr": {"sub_shift": "oyuncu değişikliği etkisi", "red_card": "kırmızı kart", "shot_surge": "şut patlaması",
-           "momentum_swing": "momentum değişimi", "channel_dominance": "kanal hakimiyeti", "possession_swing": "topa sahip olma değişimi",
+           "momentum_swing": "momentum değişimi", "channel_dominance": "kanal hakimiyeti", "possession_swing": "pas payı değişimi",
            "dangerous_sequences": "tekrarlanan tehlikeli ataklar", "goal": "gol"},
     "es": {"sub_shift": "cambio con efecto", "red_card": "tarjeta roja", "shot_surge": "aluvión de tiros",
-           "momentum_swing": "cambio de inercia", "channel_dominance": "dominio de carril", "possession_swing": "cambio de posesión",
+           "momentum_swing": "cambio de inercia", "channel_dominance": "dominio de carril", "possession_swing": "cambio en la cuota de pases",
            "dangerous_sequences": "llegadas peligrosas repetidas", "goal": "gol"},
 }
 

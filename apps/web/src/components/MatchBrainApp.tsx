@@ -219,7 +219,7 @@ export function MatchBrainApp({ matchId = DEMO_MATCH, demoMode = false, fail }: 
           )}
           <div className="relative min-h-0 flex-1 rounded-xl bg-pitch-700 p-2">
             {tab === "tactics" && resp ? (
-              <div className="absolute inset-2 z-10 bg-pitch-700"><StudioPreview resp={resp} colors={colors} caption={`Studio preview · ${resp.team} · ${resp.from_shape} → ${resp.to_shape}`} /></div>
+              <div className="absolute inset-2 z-10 bg-pitch-700"><StudioPreview resp={resp} colors={colors} caption={`${L.studioPreview} · ${resp.team} · ${resp.from_shape} → ${resp.to_shape}`} /></div>
             ) : null}
             {home && <Pitch events={showSeq} homeId={home.team_id} colors={colors} caption={momentView ? L.keyEvents : L.liveSeq} />}
             <div className="absolute left-4 top-3 rounded bg-black/45 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-white">{L.sequenceViewer} · {momentView && ex ? `${L.keyEvents} · ${ex.moment.clock}` : L.liveSeq}</div>

@@ -560,5 +560,5 @@
   ]
  },
  "provider_note": "Offline evaluation: deterministic templates and scripted fake LLM replies. No Azure AI Foundry calls were made.",
- "seconds": 9.7
+ "seconds": 13.5
 }
