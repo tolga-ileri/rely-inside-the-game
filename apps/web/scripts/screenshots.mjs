@@ -39,6 +39,8 @@ await shot("02-turning-point");
 await page.getByRole("button", { name: /^Evidence$/ }).first().click().catch(() => {});
 await page.waitForTimeout(600);
 await shot("03-evidence");
+await page.getByText(/^Why did the match change\?$|^Maç neden değişti\?$|^¿Por qué cambió el partido\?$/).first().click().catch(() => {});
+await page.waitForTimeout(400);
 await page.selectOption('select[aria-label="persona"]', "coach");
 await page.waitForTimeout(400);
 await shot("04-persona-coach");
